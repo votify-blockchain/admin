@@ -3,10 +3,9 @@ var fetch = require("node-fetch");
 var moment = require("moment");
 var auth = require("../middlewares/auth");
 var router = express.Router();
-
 /* GET home page. */
 router.get("/", auth, function (req, res, next) {
-  fetch("https://blockchain-node-01.herokuapp.com/elections", {
+  fetch("https://server-votify.herokuapp.com/elections", {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -56,7 +55,7 @@ router.post("/new", function (req, res, next) {
   } else {
     let data = { year, name, nominees, deadline: deadlineMoment.valueOf() };
     console.log(data);
-    fetch("https://blockchain-node-01.herokuapp.com/setelection", {
+    fetch("https://server-votify.herokuapp.com/setelection", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +80,7 @@ router.post("/new", function (req, res, next) {
 
 router.get("/extent/:id", auth, function (req, res, next) {
   let id = req.params.id;
-  fetch(`https://blockchain-node-01.herokuapp.com/elections/${id}`, {
+  fetch(`https://server-votify.herokuapp.com/elections/${id}`, {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -121,7 +120,7 @@ router.post("/extent", function (req, res, next) {
   let deadlineMoment = moment(deadline, "D-M-YYYY");
   let data = { year, name, newDeadline: deadlineMoment.valueOf() };
   console.log(data);
-  fetch("https://blockchain-node-01.herokuapp.com/extentelection", {
+  fetch("https://server-votify.herokuapp.com/extentelection", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
