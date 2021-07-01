@@ -1,0 +1,13 @@
+.election-list {
+  background-color: white;
+  min-height: 100px;
+}
+
+body {
+  background-color: #d8dde0;
+  position: relative;
+}
+
+.error {
+  color: red;
+}
