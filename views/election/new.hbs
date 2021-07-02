@@ -1,33 +1,51 @@
 <div class="mx-auto shadow w-50 mt-5 election-list p-2">
-    <a href="/elections/" class="btn btn-success">Return</a>
+    <a href="/elections/" class="btn btn-outline-dark"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+        </svg></a>
     <h6 class="mt-2 error"></h6>
     <form id="logInForm" class="d-flex flex-column align-items-center mt-4">
         <div class="form-group w-75">
-            <label for="exampleInputText">Name:</label>
+            <label for="exampleInputText">Lĩnh vực:</label>
             <input type="text" name="name" class="form-control" id="electionName">
         </div>
         <div class="form-group w-75">
-            <label for="exampleInputText">Year:</label>
+            <label for="exampleInputText">Năm đề cử:</label>
             <select class="custom-select" id="yearElected">
                 <option value="{{thisYear}}" selected>{{thisYear}}</option>
                 <option value="{{nextYear}}">{{nextYear}}</option>
             </select>
         </div>
         <div class="form-group w-75">
-            <label for="exampleInputNominees">Nominees:</label>
+            <label for="exampleInputNominees">Người đề cử:</label>
             <input type="text" class="form-control mb-2" id="nominee1">
             <input type="text" class="form-control mb-2" id="nominee2">
             <div class="d-flex justify-content-between button-box">
-                <button type="button" class="btn btn-success" id="addNominees">Add Nominee</button>
-                <button type="button" class="btn btn-success" id="deleteNominees">Delete Nominee</button>
+                <button type="button" class="btn btn-outline-success" id="addNominees"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                    </svg>&nbspThêm</button>
+                <button type="button" class="btn btn-outline-danger" id="deleteNominees"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-trash" viewBox="0 0 16 16">
+                        <path
+                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z">
+                        </path>
+                        <path fill-rule="evenodd"
+                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z">
+                        </path>
+                    </svg>&nbspXóa</button>
             </div>
         </div>
         <div class="form-group w-75">
-            <label for="exampleInputNominees">Deadline:</label>
+            <label for="exampleInputNominees">Thời hạn:</label>
             <input id="datepicker" width="276" value="{{defaultDeadline}}" />
 
         </div>
-        <button type="button" class="btn btn-primary" id="getResult">Submit</button>
+        <button type="button" class="btn btn-outline-primary" id="getResult">Tạo bầu cử</button>
     </form>
 </div>
 
