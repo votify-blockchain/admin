@@ -11,12 +11,12 @@ module.exports = function (app) {
       passwordField: "password",
     },
     (username, password, done) => {
-      if (username !== "admin123") {
+      if (username !== "admin") {
         return done(null, false, { message: "Invalid username" });
       }
 
-      var user = { username: "admin123", password: "123abcdef" };
-      if (password === "123abcdef") {
+      var user = { username: "admin", password: "123456" };
+      if (password === "123456") {
         return done(null, user);
       }
 

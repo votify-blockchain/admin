@@ -5,7 +5,7 @@ var auth = require("../middlewares/auth");
 var router = express.Router();
 /* GET home page. */
 // const URL = 'https://server-votify.herokuapp.com'
-const URL = 'https://e1c9c762cf61.ngrok.io'
+const URL = 'https://c51e5d60351d.ngrok.io'
 router.get("/", auth, function (req, res, next) {
   fetch(`${URL}/elections`, {
     headers: {
