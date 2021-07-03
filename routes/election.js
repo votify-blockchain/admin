@@ -4,8 +4,10 @@ var moment = require("moment");
 var auth = require("../middlewares/auth");
 var router = express.Router();
 /* GET home page. */
+// const URL = 'https://server-votify.herokuapp.com'
+const URL = 'https://e1c9c762cf61.ngrok.io'
 router.get("/", auth, function (req, res, next) {
-  fetch("https://server-votify.herokuapp.com/elections", {
+  fetch(`${URL}/elections`, {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -55,7 +57,7 @@ router.post("/new", function (req, res, next) {
   } else {
     let data = { year, name, nominees, deadline: deadlineMoment.valueOf() };
     console.log(data);
-    fetch("https://server-votify.herokuapp.com/setelection", {
+    fetch(`${URL}/setelection`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +82,7 @@ router.post("/new", function (req, res, next) {
 
 router.get("/extent/:id", auth, function (req, res, next) {
   let id = req.params.id;
-  fetch(`https://server-votify.herokuapp.com/elections/${id}`, {
+  fetch(`${URL}/elections/${id}`, {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -120,7 +122,7 @@ router.post("/extent", function (req, res, next) {
   let deadlineMoment = moment(deadline, "D-M-YYYY");
   let data = { year, name, newDeadline: deadlineMoment.valueOf() };
   console.log(data);
-  fetch("https://server-votify.herokuapp.com/extentelection", {
+  fetch(`${URL}/extentelection`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
